@@ -2,6 +2,7 @@ import org.example.Dollar
 import org.example.Franc
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertNotEquals
 
 class MoneyTest {
@@ -17,9 +18,11 @@ class MoneyTest {
     fun `test equality`() {
         assertEquals(Dollar(5), Dollar(5))
         assertNotEquals(Dollar(5), Dollar(6))
-        
+
         assertEquals(Franc(5), Franc(5))
         assertNotEquals(Franc(5), Franc(6))
+
+        assertFalse(Franc(5).equals(Dollar(5)))
     }
 
     @Test

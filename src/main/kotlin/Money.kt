@@ -6,7 +6,7 @@ open class Money {
 
     override fun equals(other: Any?): Boolean {
         val money: Money = other as Money
-        return amount == money.amount
+        return amount == money.amount && javaClass == money.javaClass
     }
 
 }
