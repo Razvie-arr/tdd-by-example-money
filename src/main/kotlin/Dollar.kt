@@ -6,4 +6,9 @@ class Dollar(var amount: Int) {
         return Dollar(amount * multiplier)
     }
 
+    override fun equals(other: Any?): Boolean {
+        val dollar: Dollar = other as Dollar
+        return amount == dollar.amount
+    }
+
 }
