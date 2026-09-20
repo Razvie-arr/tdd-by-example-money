@@ -1,14 +1,13 @@
 package org.example
 
-class Dollar(private var amount: Int) {
+class Dollar(amount: Int) : Money() {
+
+    init {
+        this.amount = amount
+    }
 
     internal fun times(multiplier: Int): Dollar {
         return Dollar(amount * multiplier)
-    }
-
-    override fun equals(other: Any?): Boolean {
-        val dollar: Dollar = other as Dollar
-        return amount == dollar.amount
     }
 
 }
