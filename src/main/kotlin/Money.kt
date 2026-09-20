@@ -1,12 +1,10 @@
 package org.example
 
-abstract class Money {
-
-    var amount: Int = 0
+abstract class Money(protected var amount: Int, val currency: String) {
 
     companion object {
-        fun dollar(amount: Int): Money = Dollar(amount)
-        fun franc(amount: Int): Money = Franc(amount)
+        fun dollar(amount: Int): Money = Dollar(amount, "USD")
+        fun franc(amount: Int): Money = Franc(amount, "CHF")
     }
 
     abstract fun times(multiplier: Int): Money
@@ -15,6 +13,5 @@ abstract class Money {
         val money: Money = other as Money
         return amount == money.amount && javaClass == money.javaClass
     }
-
-
+    
 }
