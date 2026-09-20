@@ -6,7 +6,7 @@ class Franc(amount: Int) : Money() {
         this.amount = amount
     }
 
-    internal fun times(multiplier: Int): Franc {
+    override fun times(multiplier: Int): Money {
         return Franc(amount * multiplier)
     }
 

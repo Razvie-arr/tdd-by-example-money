@@ -1,35 +1,33 @@
-import org.example.Dollar
-import org.example.Franc
+import org.example.Money
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertFalse
 import kotlin.test.assertNotEquals
 
 class MoneyTest {
 
     @Test
     fun `test multiplication`() {
-        val five = Dollar(5)
-        assertEquals(Dollar(10), five.times(2))
-        assertEquals(Dollar(15), five.times(3))
+        val five: Money = Money.dollar(5)
+        assertEquals(Money.dollar(10), five.times(2))
+        assertEquals(Money.dollar(15), five.times(3))
     }
 
     @Test
     fun `test equality`() {
-        assertEquals(Dollar(5), Dollar(5))
-        assertNotEquals(Dollar(5), Dollar(6))
+        assertEquals(Money.dollar(5), Money.dollar(5))
+        assertNotEquals(Money.dollar(5), Money.dollar(6))
 
-        assertEquals(Franc(5), Franc(5))
-        assertNotEquals(Franc(5), Franc(6))
+        assertEquals(Money.franc(5), Money.franc(5))
+        assertNotEquals(Money.franc(5), Money.franc(6))
 
-        assertFalse(Franc(5).equals(Dollar(5)))
+        assertNotEquals(Money.franc(5), Money.dollar(5))
     }
 
     @Test
     fun `test frank multiplication`() {
-        val five = Franc(5)
-        assertEquals(Franc(10), five.times(2))
-        assertEquals(Franc(15), five.times(3))
+        val five = Money.franc(5)
+        assertEquals(Money.franc(10), five.times(2))
+        assertEquals(Money.franc(15), five.times(3))
     }
 
 }

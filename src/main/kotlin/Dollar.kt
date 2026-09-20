@@ -6,7 +6,7 @@ class Dollar(amount: Int) : Money() {
         this.amount = amount
     }
 
-    internal fun times(multiplier: Int): Dollar {
+    override fun times(multiplier: Int): Money {
         return Dollar(amount * multiplier)
     }
 
