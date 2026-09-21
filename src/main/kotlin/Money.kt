@@ -3,8 +3,8 @@ package org.example
 open class Money(protected var amount: Int, val currency: String) {
 
     companion object {
-        fun dollar(amount: Int): Money = Dollar(amount, "USD")
-        fun franc(amount: Int): Money = Franc(amount, "CHF")
+        fun dollar(amount: Int): Money = Money(amount, "USD")
+        fun franc(amount: Int): Money = Money(amount, "CHF")
     }
 
     fun times(multiplier: Int) = Money(amount * multiplier, currency)
