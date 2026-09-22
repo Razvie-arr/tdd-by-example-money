@@ -12,8 +12,8 @@ class Money(val amount: Int, val currency: String) : Expression {
     override fun plus(addend: Expression): Expression = Sum(this, addend)
 
     override fun equals(other: Any?): Boolean {
-        val money: Money = other as Money
-        return amount == money.amount && currency == money.currency
+        if (other !is Money) return false
+        return amount == other.amount && currency == other.currency
     }
 
     override fun toString() = "$amount $currency"

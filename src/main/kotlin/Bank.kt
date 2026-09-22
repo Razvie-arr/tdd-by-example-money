@@ -2,7 +2,7 @@ package org.example
 
 class Bank {
 
-    private val rates = mutableMapOf<Pair, Int>()
+    private val rates = mutableMapOf<Pair<String, String>, Int>()
 
     fun addRate(from: String, to: String, rate: Int) = rates.put(Pair(from, to), rate)
 
