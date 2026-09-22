@@ -6,4 +6,6 @@ interface Expression {
 
     fun plus(addend: Expression): Expression
 
+    fun times(multiplier: Int): Expression
+
 }
