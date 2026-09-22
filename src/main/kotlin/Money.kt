@@ -18,6 +18,15 @@ class Money(val amount: Int, val currency: String) : Expression {
 
     override fun toString() = "$amount $currency"
 
-    override fun reduce(to: String) = this
+    override fun reduce(bank: Bank, to: String): Money {
+        val rate = bank.rate(currency, to)
+        return Money(amount / rate, to)
+    }
+
+    override fun hashCode(): Int {
+        var result = amount
+        result = 31 * result + currency.hashCode()
+        return result
+    }
 
 }
