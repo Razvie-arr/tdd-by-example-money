@@ -7,9 +7,9 @@ class Money(val amount: Int, val currency: String) : Expression {
         fun franc(amount: Int): Money = Money(amount, "CHF")
     }
 
-    fun times(multiplier: Int) = Money(amount * multiplier, currency)
+    fun times(multiplier: Int): Expression = Money(amount * multiplier, currency)
 
-    fun plus(addend: Money): Expression = Sum(this, addend)
+    override fun plus(addend: Expression): Expression = Sum(this, addend)
 
     override fun equals(other: Any?): Boolean {
         val money: Money = other as Money
